@@ -89,4 +89,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
         }
     }
+
+    public interface onMovieListener{
+        void onNoteClick(int position);
+    }
 }
