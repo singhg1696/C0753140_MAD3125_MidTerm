@@ -15,4 +15,29 @@
         android:id="@+id/imageViewDetail"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
+
+    <TextView
+        android:id="@+id/txtDetailTitleMission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewDetail"
+        android:layout_marginTop="20dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_below="@+id/txtDetailTitleMission"
+        android:id="@+id/txtDetails"
+        android:gravity="center"
+        android:layout_width="318dp"
+        android:layout_height="91dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="27dp"
+        android:text='Successful first stage burn and transition to second stage, maximum altitude 289 km, Premature engine shutdown at T+7 min 30 s, Failed to reach orbit, Failed to recover first stage",'
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

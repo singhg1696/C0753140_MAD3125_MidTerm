@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public class WelcomeActivity extends AppCompatActivity implements MoviesAdapter.
 
         mAdapter = new MoviesAdapter(WelcomeActivity.this,flightRowList,WelcomeActivity.this);
         String size= String.valueOf(flightRowList.size());
-        Log.d("Sizeeeeeeeeeeeeeez",size);
+        Log.d("Size",size);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -63,7 +64,10 @@ public class WelcomeActivity extends AppCompatActivity implements MoviesAdapter.
     public void onNoteClick(int position) {
         Intent intent = new Intent(WelcomeActivity.this, DetailActivity.class);
         intent.putExtra("Position",position);
+
         startActivity(intent);
 
     }
+
+
 }
