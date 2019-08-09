@@ -1,4 +1,4 @@
-package com.example.c0753140_mad3125_midterm;
+package com.example.c0753140_mad3125_midterm.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.c0753140_mad3125_midterm.MoviesAdapter;
+import com.example.c0753140_mad3125_midterm.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -37,8 +39,8 @@ public class WelcomeActivity extends AppCompatActivity {
         }
 
         Gson gson = new Gson();
-        spacex[] spacexes = gson.fromJson(json,spacex[].class);
-        mAdapter = new MoviesAdapter(spacexes);
+        /*spacex[] spacexes = gson.fromJson(json,spacex[].class);
+        mAdapter = new MoviesAdapter(spacexes);*/
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

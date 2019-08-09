@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".WelcomeActivity"
+    tools:context=".Views.WelcomeActivity"
     tools:node="replace">
 
     <androidx.recyclerview.widget.RecyclerView

@@ -14,10 +14,7 @@ import java.util.List;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
 
 
-    spacex[] spacexes;
-    public MoviesAdapter(spacex[] spacexes) {
-        this.spacexes=spacexes;
-    }
+
 
     @NonNull
     @Override
@@ -26,6 +23,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
                 .inflate(R.layout.movie_list, parent, false);
 
         return new MyViewHolder(itemView);
+
 
     }
 
@@ -42,7 +40,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return spacexes.length;
+        return 1;
     }
 
 
