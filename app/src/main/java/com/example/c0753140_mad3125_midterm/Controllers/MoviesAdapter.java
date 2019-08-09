@@ -51,16 +51,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         FlightRow mFlightRow = flightRowsList.get(i);
         String photoUrl = WelcomeActivity.staticSpaceXFlightList.get(i).getLinks().getMission_patch_small();
-        Glide.with(myViewHolder.flightImage)  //2
-                .load(photoUrl) //3
-                .centerCrop() //4
-                .placeholder(R.drawable.spacex) //5
-                .error(R.drawable.spacex) //6
-                .fallback(R.drawable.spacex) //7
+        Glide.with(myViewHolder.flightImage)
+                .load(photoUrl)
+                .centerCrop()
+                .placeholder(R.drawable.spacex)
+                .error(R.drawable.spacex)
+                .fallback(R.drawable.spacex)
                 .into(myViewHolder.flightImage);
-        //myViewHolder.flightImage.setImageResource(mFlightRow.getImageId());
-        //icon.setImageResource(context.getResources().getIdentifier(animal.getAnimalName().toLowerCase(),"drawable",context.getPackageName()));
-        myViewHolder.flightName.setText(mFlightRow.getFlightName());
+                myViewHolder.flightName.setText(mFlightRow.getFlightName());
         myViewHolder.flightYear.setText(mFlightRow.getFlightYear());
     }
 
@@ -72,7 +70,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         ImageView flightImage;
         TextView flightName,flightYear;
@@ -89,6 +87,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             // Click Listener Attached to Holder Class
             itemView.setOnClickListener(this);
         }
+
 
         @Override
         public void onClick(View view) {
