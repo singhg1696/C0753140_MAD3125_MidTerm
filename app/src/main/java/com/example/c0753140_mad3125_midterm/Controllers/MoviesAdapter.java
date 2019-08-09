@@ -68,7 +68,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         ImageView flightImage;
         TextView flightName,flightYear;
@@ -79,6 +79,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             flightImage =  view.findViewById(R.id.image);
             flightName =  view.findViewById(R.id.title);
             flightYear =  view.findViewById(R.id.year);
+
+            // Click Listener Attached to Holder Class
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+
         }
     }
 }
