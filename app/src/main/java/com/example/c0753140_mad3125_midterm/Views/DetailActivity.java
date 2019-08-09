@@ -25,20 +25,23 @@ public class DetailActivity extends AppCompatActivity {
     public static ArrayList<SpaceXFlight> staticSpaceXFlightList;
     public static int position;
     private List<FlightRow> flightRowList;
-    TextView txtTitle;
+    TextView txtTitle,txtDetail,txtYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Intent intent= getIntent();
-        imageView = findViewById(R.id.imageViewDetail);
-        txtTitle = findViewById(R.id.txtDetailTitleMission);
+        getIds();
+
         position = intent.getIntExtra("Position",0);
         flight = WelcomeActivity.staticSpaceXFlightList.get(position);
 
         // Mission Name
         txtTitle.setText(flight.getMission_name());
+        // Set Missin Detail
+        txtDetail.setText(flight.getDetails());
+        // Set Year
         String photoUrl = flight.getLinks().getMission_patch_small();
         Glide.with(imageView)
                 .load(photoUrl)
@@ -47,6 +50,8 @@ public class DetailActivity extends AppCompatActivity {
                 .error(R.drawable.spacex)
                 .fallback(R.drawable.spacex)
                 .into(imageView);
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -67,4 +72,10 @@ public class DetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public void getIds()
+    {
+        imageView = findViewById(R.id.imageViewDetail);
+        txtTitle = findViewById(R.id.txtDetailTitleMission);
+        txtDetail = findViewById(R.id.txtDetails);
+        txtYear = findViewById(R.id.txtYear);    }
 }
