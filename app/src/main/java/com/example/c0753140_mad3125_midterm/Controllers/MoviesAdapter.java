@@ -22,15 +22,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     public List<FlightRow> flightRowsList;
     ImageView flightImage;
+    private onMovieListener onMovieListener;
     TextView flightName,flightYear;
 
     private static final String TAG = "FlightAdapter";
 
     AppCompatActivity activity;
 
-    public MoviesAdapter(AppCompatActivity activity_main, List<FlightRow> flightRowsList)
+    public MoviesAdapter(AppCompatActivity activity_main, List<FlightRow> flightRowsList,onMovieListener onMovieListener)
     {
         this.flightRowsList = flightRowsList;
+        this.onMovieListener = onMovieListener;
         this.activity = activity_main;
         Log.e(TAG, "FlightAdapter: "+flightRowsList.size() );
 
@@ -42,7 +44,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.movie_list, viewGroup, false);
 
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView,onMovieListener);
     }
 
     @Override
@@ -68,14 +70,18 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
 
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         ImageView flightImage;
         TextView flightName,flightYear;
+        onMovieListener onMovieListener;
 
-        public MyViewHolder(View view)
+        public MyViewHolder(View view,onMovieListener onMovieListener)
         {
             super(view);
+            this.onMovieListener = onMovieListener;
             flightImage =  view.findViewById(R.id.image);
             flightName =  view.findViewById(R.id.title);
             flightYear =  view.findViewById(R.id.year);
@@ -86,6 +92,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
         @Override
         public void onClick(View view) {
+
+            onMovieListener.onNoteClick(getAdapterPosition());
 
         }
     }

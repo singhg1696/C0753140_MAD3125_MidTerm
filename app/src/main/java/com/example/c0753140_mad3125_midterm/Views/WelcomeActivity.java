@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.c0753140_mad3125_midterm.Model.DataStore;
 import com.example.c0753140_mad3125_midterm.Model.FlightRow;
@@ -17,7 +19,7 @@ import com.example.c0753140_mad3125_midterm.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity implements MoviesAdapter.onMovieListener {
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
     DataStore mDataStore;
@@ -36,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
 
 
-        mAdapter = new MoviesAdapter(WelcomeActivity.this,flightRowList);
+        mAdapter = new MoviesAdapter(WelcomeActivity.this,flightRowList,WelcomeActivity.this);
         String size= String.valueOf(flightRowList.size());
         Log.d("Sizeeeeeeeeeeeeeez",size);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -55,5 +57,13 @@ public class WelcomeActivity extends AppCompatActivity {
             flightRowList.add(flightRow);
         }
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+        Intent intent = new Intent(WelcomeActivity.this, DetailActivity.class);
+        intent.putExtra("Position",position);
+        startActivity(intent);
+
     }
 }
