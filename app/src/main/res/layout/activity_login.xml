@@ -9,13 +9,21 @@
     android:layout_alignParentRight="true"
     android:layout_alignParentLeft="true"
     android:layout_centerVertical="true"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/Black"
     android:layout_centerHorizontal="true"
     tools:context=".Views.LoginActivity"
     android:layout_alignParentEnd="true"
     android:layout_alignParentStart="true">
 
 
+    <ImageView
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView"
+        android:layout_width="2500dp"
+        android:layout_height="150dp"
+        android:src="@drawable/loginlogo"
+        />
 
     <EditText
         android:layout_marginTop="400dp"
@@ -42,6 +50,26 @@
         android:textSize="16sp"
         android:textColor="#000000" />
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/chkboxRememberMe"
+            android:buttonTint="#ffffff"
+            android:checked="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="@string/remember_me"/>
+
+    </LinearLayout>
 
     <Button
         android:layout_below="@+id/txtPass"
@@ -53,4 +81,5 @@
         android:text="Sign In"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_universal" />
+
 </RelativeLayout>
