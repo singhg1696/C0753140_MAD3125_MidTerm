@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     public static ArrayList<SpaceXFlight> staticSpaceXFlightList;
     public static int position;
     private List<FlightRow> flightRowList;
-    TextView txtTitle,txtDetail,txtYear;
+    TextView txtTitle,txtDetail,txtYear,txtFlightNumber,txtRocketName,txtRocketType,txtYoutube;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,10 @@ public class DetailActivity extends AppCompatActivity {
         txtDetail.setText(flight.getDetails());
         // Set Year
         txtYear.setText(flight.getLaunch_year());
+        // Set Flight Number
+        txtFlightNumber.setText(flight.getFlight_number());
+        txtRocketName.setText(flight.getRocket().getRocket_name());
+        txtRocketType.setText(flight.getRocket().getRocket_type());
         String photoUrl = flight.getLinks().getMission_patch_small();
         Glide.with(imageView)
                 .load(photoUrl)
@@ -52,6 +57,15 @@ public class DetailActivity extends AppCompatActivity {
                 .fallback(R.drawable.spacex)
                 .into(imageView);
 
+        txtYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailActivity.this,WebView.class);
+                intent.putExtra("link", flight.getLinks().getVideo_link());
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
     @Override
@@ -78,5 +92,10 @@ public class DetailActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageViewDetail);
         txtTitle = findViewById(R.id.txtDetailTitleMission);
         txtDetail = findViewById(R.id.txtDetails);
-        txtYear = findViewById(R.id.txtYear);    }
+        txtYear = findViewById(R.id.txtYear);
+        txtFlightNumber = findViewById(R.id.txtFlight);
+        txtRocketName = findViewById(R.id.txtRocketName);
+        txtRocketType = findViewById(R.id.txtRocketType);
+        txtYoutube = findViewById(R.id.txtYoutube);
+    }
 }
