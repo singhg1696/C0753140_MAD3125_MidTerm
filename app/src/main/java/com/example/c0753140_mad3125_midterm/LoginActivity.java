@@ -26,43 +26,39 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getIds();
-        // Initialize Firebase Auth
+        editTextEmail = findViewById(R.id.txtEmail);
+        editTextPass = findViewById(R.id.txtPass);
+        btnLogin = findViewById(R.id.btnLogin);        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnLogin.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPass.getText().toString())
-                                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            // Sign in success, update UI with the signed-in user's information
-                                            startActivity(new Intent(LoginActivity.this,WelcomeActivity.class));
-                                        } else {
-                                            // If sign in fails, display a message to the user.
-                                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
+                mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPass.getText().toString())
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
 
-                                        // ...
-                                    }
-                                });
-                    }
-                });
+                                    Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
+                                    startActivity(intent);
+                                    // Sign in success, update UI with the signed-in user's information
+                                    //startActivity(new Intent(LoginActivity.this,WelcomeActivity.class));
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+
+                                // ...
+                            }
+                        });
             }
         });
     }
 
     // function to get each id from xml file
-    private void getIds(){
-        editTextEmail = findViewById(R.id.txtEmail);
-        editTextPass = findViewById(R.id.txtPass);
-        btnLogin = findViewById(R.id.btnLogin);
-    }
+
 
 
 

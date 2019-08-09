@@ -20,7 +20,7 @@
         card_view:cardElevation="4dp"
         card_view:cardCornerRadius="5dp">
 
-        <TextView
+        <ImageView
             android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="100dp"
