@@ -42,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set Missin Detail
         txtDetail.setText(flight.getDetails());
         // Set Year
+        txtYear.setText(flight.getLaunch_year());
         String photoUrl = flight.getLinks().getMission_patch_small();
         Glide.with(imageView)
                 .load(photoUrl)
