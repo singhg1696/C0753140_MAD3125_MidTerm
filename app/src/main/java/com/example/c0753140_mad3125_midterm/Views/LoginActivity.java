@@ -77,7 +77,15 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-
+                                    if (rememberMe.isChecked()) {
+                                        loginPrefsEditor.putBoolean("saveLogin", true);
+                                        loginPrefsEditor.putString("username", editTextEmail.getText().toString());
+                                        loginPrefsEditor.putString("password", editTextPass.getText().toString());
+                                        loginPrefsEditor.commit();
+                                    } else {
+                                        loginPrefsEditor.clear();
+                                        loginPrefsEditor.commit();
+                                    }
 
                                     Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
