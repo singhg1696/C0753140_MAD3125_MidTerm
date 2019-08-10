@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:padding="20dp"
@@ -17,6 +17,18 @@
         android:id="@+id/imageViewDetail"
         android:layout_width="250dp"
         android:layout_height="250dp" />
+
+    <TextView
+        android:clickable="true"
+        android:id="@+id/txtYoutube"
+        android:layout_below="@id/imageViewDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="46dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="18dp"
+        android:text="Click Here" />
 
     <TextView
         android:id="@+id/txtDetailTitleMission"
@@ -27,6 +39,7 @@
         android:fontFamily="cursive"
         android:gravity="center"
         android:textSize="40dp" />
+
 
     <TextView
         android:layout_below="@+id/txtDetailTitleMission"
@@ -162,21 +175,7 @@
 
     </LinearLayout>
 
-    <TextView
-        android:clickable="true"
-        android:id="@+id/txtYoutube"
-        android:layout_below="@id/llayout4"
-        android:layout_centerHorizontal="true"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="46dp"
-        android:layout_marginStart="18dp"
-        android:text="Click Here"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="323dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
 
 
