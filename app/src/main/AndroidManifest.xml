@@ -18,14 +18,16 @@
         <activity android:name=".Views.WebView"></activity>
         <activity android:name=".Views.DetailActivity"></activity>
         <activity android:name=".Views.WelcomeActivity">
+
+        </activity>
+        <activity android:name=".Views.LoginActivity" />
+        <activity android:name=".Views.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Views.LoginActivity" />
-        <activity android:name=".Views.SplashActivity"></activity>
     </application>
 
 </manifest>

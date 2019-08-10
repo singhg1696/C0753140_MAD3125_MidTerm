@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.c0753140_mad3125_midterm.Model.DataStore;
+import com.example.c0753140_mad3125_midterm.JsonDataFetcher.DataStore;
 import com.example.c0753140_mad3125_midterm.Model.FlightRow;
 import com.example.c0753140_mad3125_midterm.Model.SpaceXFlight;
 import com.example.c0753140_mad3125_midterm.Controllers.MoviesAdapter;

@@ -1,7 +1,12 @@
-package com.example.c0753140_mad3125_midterm.Model;
+package com.example.c0753140_mad3125_midterm.JsonDataFetcher;
 
 import android.content.Context;
 import android.util.Log;
+
+import com.example.c0753140_mad3125_midterm.Model.LaunchSite;
+import com.example.c0753140_mad3125_midterm.Model.Links;
+import com.example.c0753140_mad3125_midterm.Model.Rocket;
+import com.example.c0753140_mad3125_midterm.Model.SpaceXFlight;
 
 import org.json.JSONArray;
 import org.json.JSONException;
